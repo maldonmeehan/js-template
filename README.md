@@ -170,6 +170,13 @@ gulp.task('jshint', function(){
 });
 ```
 
+#### Bower
+A package manager (much like npm) specifically meant for front-end packages like Bootstrap and jQuery.
+```
+$ npm install bower -g
+$ bower init
+```
+
 ## Setup/Installation Requirements
 
 * Clone this repository:

@@ -1,0 +1,17 @@
+{
+  "name": "template",
+  "description": "#### Js-Template, August 4, 2016",
+  "main": "gulpfile.js",
+  "authors": [
+    "Maldon <maldonmeehan@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/maldonmeehan/js-template",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
