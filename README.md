@@ -149,6 +149,27 @@ gulp.task("clean", function(){
 });
 ```
 
+#### Linting with JSHint
+Linter: A tool that analyzes your code and warns you about parts that don't follow stylistic conventions or could cause bugs in the future.
+
+JSHint: A specific linter tool that can be installed with an npm package.
+
+```
+$ npm install jshint --save-dev
+$ npm install gulp-jshint --save-dev
+```
+
+gulpfile.js
+```
+var jshint = require('gulp-jshint');
+
+gulp.task('jshint', function(){
+  return gulp.src(['js/*.js'])
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
+```
+
 ## Setup/Installation Requirements
 
 * Clone this repository:
