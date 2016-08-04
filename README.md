@@ -91,6 +91,25 @@ gulp.task('concatInterface', function() {
 });
 ```
 
+#### Minifying with gulp-uglify
+The process of removing all unnecessary characters in JS files to optimize JavaScript execution.
+
+```
+$ npm install gulp-uglify --save-dev
+```
+| gulpfile.js |
+| ------------- |
+| var uglify = require('gulp-uglify'); |
+
+Add the following gulp task to the gulpfile.js file.
+```
+gulp.task("minifyScripts", ["jsBrowserify"], function(){
+  return gulp.src("./build/js/app.js")
+    .pipe(uglify())
+    .pipe(gulp.dest("./build/js"));
+});
+```
+
 ## Setup/Installation Requirements
 
 * Clone this repository:
