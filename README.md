@@ -110,6 +110,45 @@ gulp.task("minifyScripts", ["jsBrowserify"], function(){
 });
 ```
 
+#### Environmental Variables | gulp-util
+A variable that indicates which environment - production or development, for instance - is being referenced.
+gulp-util: A npm package that manages multiple utilities, including environmental variables.
+
+
+```
+$ npm install gulp-util --save-dev
+```
+| gulpfile.js |
+| ------------- |
+| var utilities = require('gulp-util'); |
+| var buildProduction = utilities.env.production; |
+
+Build Tasks
+
+```
+gulp.task("build", ['clean'], function(){
+  if (buildProduction) {
+    gulp.start('minifyScripts');
+  } else {
+    gulp.start('jsBrowserify');
+  }
+});
+```
+
+Clean Tasks
+```
+$ npm install del --save-dev
+```
+| gulpfile.js |
+| ------------- |
+| var del = require('del'); |
+
+```
+gulp.task("clean", function(){
+  return del(['build', 'tmp']);
+});
+```
+
 ## Setup/Installation Requirements
 
 * Clone this repository:
