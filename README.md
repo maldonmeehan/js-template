@@ -65,8 +65,8 @@ Add the following to the gulpfile.js file.
 
 Add the following gulp task to the gulpfile.js file.
 ```
-gulp.task('jsBrowserify', function() {
-  return browserify({ entries: ['./js/pingpong-interface.js'] })
+gulp.task('jsBrowserify', ['concatInterface'], function() {
+  return browserify({ entries: ['./tmp/allConcat.js'] })
     .bundle()
     .pipe(source('app.js'))
     .pipe(gulp.dest('./build/js'));
@@ -85,7 +85,7 @@ $ npm install gulp-concat --save-dev
 Add the following gulp task to the gulpfile.js file.
 ```
 gulp.task('concatInterface', function() {
-  return gulp.src(['./js/pingpong-interface.js', './js/signup-interface.js'])
+  return gulp.src(['./js/*-interface.js'])
     .pipe(concat('allConcat.js'))
     .pipe(gulp.dest('./tmp'));
 });
