@@ -177,6 +177,28 @@ $ npm install bower -g
 $ bower init
 ```
 
+#### jQuery
+```
+$ bower install jquery --save
+$ bower install
+```
+
+.gitignore
+```
+bower_components
+```
+
+#### Bootstrap
+```
+$ bower install bootstrap --save
+```
+index.html should look like this:
+```
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="build/js/app.js"></script>
+```
 ## Setup/Installation Requirements
 
 * Clone this repository:
