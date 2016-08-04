@@ -259,6 +259,44 @@ gulp.task('bowerJS', function () {
 gulp.task('bower', ['bowerJS', 'bowerCSS']);
 ```
 
+####
+BowerSync
+An npm package used to implement development servers with live reloading capabilities.
+```
+$ npm install browser-sync --save-dev
+```
+```
+var browserSync = require('browser-sync').create();
+
+gulp.task('serve', function() {
+  browserSync.init({
+    server: {
+      baseDir: "./",
+      index: "index.html"
+    }
+  });
+});
+
+```
+
+#### Sass
+```
+$ npm install gulp-sass gulp-sourcemaps --save-dev
+```
+```
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+
+gulp.task('cssBuild', function() {
+  return gulp.src(['scss/*.scss'])
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./build/css'));
+});
+```
+
+
 ## Setup/Installation Requirements
 
 * Clone this repository:
