@@ -50,6 +50,8 @@ So next, we're going to need a .gitignore file. Add the following to the .gitign
 | .DS_Store |
 
 #### Vinyl-source-stream
+An npm package used for placing browserified source code into a new file.
+
 ```
 $ npm install vinyl-source-stream --save-dev
 ```
@@ -68,6 +70,24 @@ gulp.task('jsBrowserify', function() {
     .bundle()
     .pipe(source('app.js'))
     .pipe(gulp.dest('./build/js'));
+});
+```
+
+#### Concatenation
+A process of copying all JavaScript files into one file to be used in the browser and decrease load time.
+```
+$ npm install gulp-concat --save-dev
+```
+| gulpfile.js |
+| ------------- |
+| var concat = require('gulp-concat'); |
+
+Add the following gulp task to the gulpfile.js file.
+```
+gulp.task('concatInterface', function() {
+  return gulp.src(['./js/pingpong-interface.js', './js/signup-interface.js'])
+    .pipe(concat('allConcat.js'))
+    .pipe(gulp.dest('./tmp'));
 });
 ```
 
