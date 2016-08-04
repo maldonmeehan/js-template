@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/maldonmeehan/js-template#readme",
   "devDependencies": {
+    "bower-files": "^3.13.3",
     "browserify": "^13.1.0",
     "del": "^2.2.1",
     "gulp": "^3.9.1",

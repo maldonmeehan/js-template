@@ -199,6 +199,66 @@ index.html should look like this:
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="build/js/app.js"></script>
 ```
+
+#### Moment.js
+```
+$ bower install moment --save
+```
+add to index.html
+```
+<script src="bower_components/moment/min/moment.min.js"></script>
+```
+add to time-interface.js
+```
+$(document).ready(function(){
+  $('#time').text(moment());
+});
+```
+add to index.html
+```
+<h3>Well look at the time! </h3>
+<h3 id="time"></h3>
+```
+
+#### Bower Packages
+A package manager (much like npm) specifically meant for front-end packages like Bootstrap and jQuery.
+```
+$ npm install bower-files --save-dev
+```
+
+```
+var lib = require('bower-files')({
+  "overrides":{
+    "bootstrap" : {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+});
+
+gulp.task('build', ['clean'], function(){
+  if (buildProduction) {
+    gulp.start('minifyScripts');
+  } else {
+    gulp.start('jsBrowserify');
+  }
+  gulp.start('bower');
+});
+
+gulp.task('bowerJS', function () {
+  return gulp.src(lib.ext('js').files)
+    .pipe(concat('vendor.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/js'));
+});
+
+
+gulp.task('bower', ['bowerJS', 'bowerCSS']);
+```
+
 ## Setup/Installation Requirements
 
 * Clone this repository:
